@@ -43,6 +43,8 @@
 		</view>
 		<view class="hot-movies page-block">
 			<video 
+			   :id='trailer.id'
+			   @play="meIsplaying(trailer.id)"
 			   v-for = "trailer in hotTrailerList"
 			   :src="trailer.trailer" 
 			   :poster="trailer.poster"
@@ -138,6 +140,11 @@
 		onPullDownRefresh() {
 			this.refresh()
 		},
+		onHide() {
+			if(this.videoContext) {
+				this.videoContext.pause();
+			}
+		},
 		onLoad() {
 			// 在页面创建的时候，创建一个临时动画对象
 			// #ifdef APP-PLUS||MP-WEIXIN
@@ -205,6 +212,18 @@
 			this.refresh()
 		},
 		methods: {
+			// 播放一个视频，暂停其他视频
+			meIsplaying(id) {
+				if(id) {
+					this.videoContext = uni.createVideoContext(id);
+				}
+				var hotTrailerList = this.hotTrailerList;
+				for(var i = 0; i<hotTrailerList.length; i++) {
+					if(hotTrailerList[i].id != id ) {
+						uni.createVideoContext(hotTrailerList[i].id).pause();
+					}
+				}
+			},
 			refresh() {
 				uni.showLoading({
 					mask: true

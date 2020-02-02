@@ -142,7 +142,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var trailerStars = function trailerStars() {return __webpack_require__.e(/*! import() | components/trailerStars */ "components/trailerStars").then(__webpack_require__.bind(null, /*! ../../components/trailerStars.vue */ 35));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var trailerStars = function trailerStars() {return __webpack_require__.e(/*! import() | components/trailerStars */ "components/trailerStars").then(__webpack_require__.bind(null, /*! ../../components/trailerStars.vue */ 53));};var _default =
+
+
 
 
 
@@ -282,6 +284,11 @@ __webpack_require__.r(__webpack_exports__);
   onPullDownRefresh: function onPullDownRefresh() {
     this.refresh();
   },
+  onHide: function onHide() {
+    if (this.videoContext) {
+      this.videoContext.pause();
+    }
+  },
   onLoad: function onLoad() {var _this = this;
     // 在页面创建的时候，创建一个临时动画对象
 
@@ -349,6 +356,18 @@ __webpack_require__.r(__webpack_exports__);
     this.refresh();
   },
   methods: {
+    // 播放一个视频，暂停其他视频
+    meIsplaying: function meIsplaying(id) {
+      if (id) {
+        this.videoContext = uni.createVideoContext(id);
+      }
+      var hotTrailerList = this.hotTrailerList;
+      for (var i = 0; i < hotTrailerList.length; i++) {
+        if (hotTrailerList[i].id != id) {
+          uni.createVideoContext(hotTrailerList[i].id).pause();
+        }
+      }
+    },
     refresh: function refresh() {var _this2 = this;
       uni.showLoading({
         mask: true });
