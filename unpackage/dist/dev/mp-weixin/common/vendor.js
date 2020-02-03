@@ -8508,7 +8508,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "enablePullDownRefresh": true, "usingComponents": { "trailer-stars": "/components/trailerStars" }, "usingAutoImportComponents": {} }, "pages/search/search": { "navigationBarTitleText": "搜索预告片", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/me": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/movie/movie": { "usingComponents": { "trailer-stars": "/components/trailerStars" }, "usingAutoImportComponents": {} }, "pages/cover/cover": { "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "xx电影预告", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "enablePullDownRefresh": true }, "pages/search/search": { "navigationBarTitleText": "搜索预告片" }, "pages/me/me": { "navigationBarTextStyle": "white", "navigationBarTitleText": "我的", "navigationBarBackgroundColor": "#ffd655" }, "pages/movie/movie": {}, "pages/cover/cover": {}, "pages/registLogin/registLogin": {} }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "xx电影预告", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */

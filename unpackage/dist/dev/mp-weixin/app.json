@@ -4,7 +4,8 @@
     "pages/search/search",
     "pages/me/me",
     "pages/movie/movie",
-    "pages/cover/cover"
+    "pages/cover/cover",
+    "pages/registLogin/registLogin"
   ],
   "subPackages": [],
   "window": {
@@ -40,5 +41,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap49.json"
+  "sitemapLocation": "sitemap54.json"
 }
