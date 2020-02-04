@@ -11,7 +11,7 @@
 			
 			<view v-if="userisLogin" class="info-wapper">
 				<view class="nickname">
-					小许
+					{{userInfo.username}}
 				</view>
 				<view class="nav-info">ID：{{userInfo.id}}</view>
 			</view>
@@ -34,11 +34,12 @@
 	export default {
 		data() {
 			return {
-				userisLogin: true,// 默认用户登陆
+				userisLogin: false,// 默认用户登陆
 				userInfo: {}
 			}
 		},
 		onShow() {
+			// debugger;
 			// 判断是否登录
 			var me = this;
 			// 用户状态的切换
@@ -46,10 +47,10 @@
 			// 用户状态的切换
 			var userInfo = uni.getStorageSync("globalUser");
 			if (userInfo != null && userInfo != "" && userInfo != undefined) {
-				me.userIsLogin = true;
+				me.userisLogin = true;
 				me.userInfo = userInfo;
 			} else {
-				me.userIsLogin = false;
+				me.userisLogin = false;
 				me.userInfo = {};
 			}
 		},

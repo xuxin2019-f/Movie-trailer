@@ -171,32 +171,29 @@ var _default =
       // 发起登陆注册请求
       var serverUrl = me.serverUrl;
       uni.request({
-        url: serverUrl + '/user/registOrLogin',
+        url: 'http://116.62.63.223:9000/interface/post/user',
         header: {
-          'content-type': 'application/json' },
+          'content-type': 'application/x-www-form-urlencoded' },
 
         data: {
-          userBO: {
-            "password": password,
-            "username": username },
-
-          qq: '719218849' },
+          "username": username,
+          "password": password },
 
         method: "POST",
         success: function success(res) {
-          debugger;
+          console.log(res);
           // 获取真实数据之前，务必判断状态是否为200
-          if (res.data.status == 200) {
-            var userInfo = res.data.data;
-            保存用户信息到全局的缓存中;
+          if (res.statusCode == 200) {
+            var userInfo = res.data;
+            // 保存用户信息到全局的缓存中
             uni.setStorageSync("globalUser", userInfo);
             // 切换页面跳转，使用tab切换的api
             uni.switchTab({
               url: "../me/me" });
 
-          } else if (res.data.status == 500) {
+          } else if (res.statusCode == 500) {
             uni.showToast({
-              title: res.data.msg,
+              title: res.msg,
               duration: 2000,
               image: "../../static/icos/error.png" });
 
