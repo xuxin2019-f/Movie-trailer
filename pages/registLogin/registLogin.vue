@@ -56,9 +56,10 @@
 							uni.switchTab({
 								url: "../me/me"
 							});
+							
 						} else if (res.statusCode == 500) {
 							uni.showToast({
-								title: res.msg,
+								title: '用户密码不正确',
 								duration: 2000,
 								image: "../../static/icos/error.png"
 							})

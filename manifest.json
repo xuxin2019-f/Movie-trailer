@@ -16,7 +16,8 @@
         },
         /* 模块配置 */
         "modules" : {
-            "Share" : {}
+            "Share" : {},
+            "OAuth" : {}
         },
         /* 应用发布信息 */
         "distribute" : {
@@ -56,6 +57,12 @@
                         "appid" : "123",
                         "appsecret" : "123"
                     }
+                },
+                "oauth" : {
+                    "weixin" : {
+                        "appid" : "123",
+                        "appsecret" : "123"
+                    }
                 }
             }
         }
@@ -79,5 +86,8 @@
     },
     "mp-toutiao" : {
         "usingComponents" : true
+    },
+    "h5" : {
+        "title" : "超英电影预告"
     }
 }

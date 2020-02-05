@@ -24,8 +24,11 @@
 			</view>
 			
 			<view class="set-wapper" v-if="userisLogin">
+				<navigator url="../meInfo/meInfo">
 					<image src="../../static/icos/settings.png" class="settings"></image>	
+			    </navigator>
 			</view>
+			
 	    </view>
 	</view>
 </template>
@@ -42,11 +45,21 @@
 			// debugger;
 			// 判断是否登录
 			var me = this;
-			// 用户状态的切换
-			var userInfo = uni.getStorageSync('globalUser')
-			// 用户状态的切换
-			var userInfo = uni.getStorageSync("globalUser");
-			if (userInfo != null && userInfo != "" && userInfo != undefined) {
+			// // 用户状态的切换
+			// var userInfo = uni.getStorageSync('globalUser')
+			// // 用户状态的切换
+			// var userInfo = uni.getStorageSync("globalUser");
+			// if (userInfo != null && userInfo != "" && userInfo != undefined) {
+			// 	me.userisLogin = true;
+			// 	me.userInfo = userInfo;
+			// } else {
+			// 	me.userisLogin = false;
+			// 	me.userInfo = {};
+			// }
+			// 使用挂载方法获取用户数据
+			
+			var userInfo = me.getGlobalUser("globalUser");
+			if (userInfo != null) {
 				me.userisLogin = true;
 				me.userInfo = userInfo;
 			} else {
